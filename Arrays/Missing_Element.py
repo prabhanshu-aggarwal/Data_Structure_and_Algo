@@ -22,6 +22,7 @@ def dfinder(arr1, arr2):
             print((arr1[i]))
             break
         
+        
 #-------------Solution 2------------------       
 from collections import defaultdict
 def dfinder(arr1, arr2):
@@ -35,4 +36,15 @@ def dfinder(arr1, arr2):
             return num
         else:
             d[num]-=1
+            
+
+#BEST SOLUTION WITH TC=linear and SC = constant            
+#-------------Solution 3------------------ 
+            
+def dfinder(arr1, arr2):
+    result = 0
+    for num in arr1 + arr2:
+        #performing XOR operations in which 1,1=0 : 1,0=1 : 0,0=0
+        result ^=  num
+    print(result)
     
