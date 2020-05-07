@@ -4,6 +4,7 @@ Created on Thu May  7 12:44:48 2020
 
 @author: Prabhanshu Aggarwal
 """
+#
 #-------------Solution 1------------------
 def dfinder(arr1, arr2):
     arr1 = sorted(arr1)
@@ -21,4 +22,4 @@ def dfinder(arr1, arr2):
         if(arr1[i]!=arr2[i]):
             print((arr1[i]))
             break
-        
+        fnfn
