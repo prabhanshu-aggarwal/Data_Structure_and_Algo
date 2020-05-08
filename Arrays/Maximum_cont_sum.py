@@ -8,6 +8,9 @@ Created on Fri May  8 11:30:38 2020
 #Find the maximum continuous sum 
 def large_cont_sum(arr):
     
+    if len(arr)==0:
+        return 0
+    
     current_sum = max_sum = arr[0]
     
     for num in arr[1:]:
