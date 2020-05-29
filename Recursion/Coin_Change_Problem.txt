@@ -1,0 +1,60 @@
+
+#Coin Change Problem
+
+#Method 1: Using recursion but this is not optimal as it find lot of recursion for samll for values too 
+#It find the the recursion again and again for same value many times
+
+def rec_coin(target, coins):
+    
+    min_coins = target
+    
+    if target in coins:
+        return 1
+    
+    else:
+        for i in  [c for c in coins if c<=target]:
+            
+            num_coins = 1+coin_change(target-i, coins)
+            
+            if  num_coins <= min_coins:
+                min_coins=num_coins
+                
+    return min_coins
+
+----------------------------------------------------------------------------------
+	
+#Using Dynamic Method
+#In this we will store the value of recursion so we dont need to find them
+#again and again which we enccountere earlier.
+
+
+def rec_coin_dynam(target, coins, known_results):
+    
+    min_coins = target
+    
+    if target in coins:
+        known_results[target] = 1
+        return 1
+    
+    # Return a known result if it happens to be greater than 1
+    elif known_results[target] > 0:
+        return known_results[target]
+    
+    else:
+        for i in  [c for c in coins if c<=target]:
+            
+            num_coins = 1+rec_coin_dynam(target-i, coins, known_results)
+            
+            if  num_coins <= min_coins:
+                min_coins=num_coins
+                
+                # Reset the known result
+                known_results[target] = min_coins
+                
+    return min_coins
+
+target = 2
+coins = [5,10,25]
+known_results = [0]*(target+1)
+
+rec_coin_dynam(target,coins,known_results)
