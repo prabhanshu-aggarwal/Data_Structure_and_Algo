@@ -1,0 +1,17 @@
+#Inheritance
+
+#Base Class i.e Parent Class
+class Person(object):
+    def __init__(self,firstname,lastname):
+        self.firstname=firstname
+        self.lastname=lastname
+    
+    def printname(self):
+        print(self.firstname + " "+ self.lastname)
+
+#Derieved Class i.e Child Class 
+class Student(Person):
+    pass
+        
+x=Student("pb", "agg")
+x.printname()
