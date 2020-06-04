@@ -15,3 +15,31 @@ class Student(Person):
         
 x=Student("pb", "agg")
 x.printname()
+
+---------------------------------------------------
+
+
+#MultiLevel Inheritance
+class Parent():
+    def __init__(self, name):
+        self.name=name
+    def getname(self):
+        return self.name
+    
+class child(Parent):
+    def __init__(self,name, age):
+        Parent.__init__(self, name)
+        self.age=age
+    def getAge(self): 
+        return self.age 
+    
+class grandchild(child):
+    def __init__(self, name, age, gender):
+        child.__init__(self, name,age)
+        self.gender=gender
+    def gender(self): 
+        return self.gender
+     
+obj = grandchild("pra", 23, "M")
+obj.age
+            
